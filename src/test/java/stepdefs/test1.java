@@ -3,7 +3,6 @@ package stepdefs;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-//import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -14,14 +13,16 @@ import java.util.concurrent.TimeUnit;
 
 public class test1 {
     public static WebDriver driver;
+    Class<? extends WebDriver> driverClass = null;
 
     @Given("^user is on homepage$")
     public void user_is_on_homepage() throws Throwable {
-        Class<? extends WebDriver> driverClass = ChromeDriver.class;
+        WebDriverManager.config().setTargetPath("drivers");
+//        WebDriverManager.config().setDriverVersion("Win32_3.14.0");
+
+        driverClass = ChromeDriver.class;
         WebDriverManager.getInstance(driverClass).setup();
         driver = driverClass.newInstance();
-//      System.setProperty("webdriver.chrome.driver","drivers/chromedriver_2.41.exe");
-//      driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php");

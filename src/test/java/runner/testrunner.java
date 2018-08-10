@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"classpath:features/test1.feature"},
+        features = "src/test/java/features",
         glue = {"stepdefs"},
         plugin = { "pretty", "html:target/html-reports"}
 )

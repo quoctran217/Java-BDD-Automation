@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class WebPage extends WebDriverFactory {
-    private WebDriver webDriver = getWebDriver();
+    private final WebDriver webDriver = super.getWebDriver();
     private WebElement tempElement;
 
-    public WebPage() throws Throwable{}
+    public WebDriver getWebDriver() { return webDriver; }
 
     public void clickElementByID(String elementID) {
         tempElement = webDriver.findElement(By.id(elementID));

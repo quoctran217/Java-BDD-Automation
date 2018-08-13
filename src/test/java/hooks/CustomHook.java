@@ -9,9 +9,9 @@ public class CustomHook {
     private WebDriver webDriver;
 
     @Before
-    public void beforeScenario() throws Throwable{
+    public void beforeScenario() {
         System.out.println("*** BEFORE SCENARIO");
-        this.webDriver = new WebDriverFactory().getWebDriver(); // Initiate a webdriver instance
+        webDriver = new WebDriverFactory().getWebDriver(); // Initiate a webdriver instance
     }
 
     @After

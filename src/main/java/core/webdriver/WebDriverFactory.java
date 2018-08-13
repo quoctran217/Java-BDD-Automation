@@ -6,39 +6,41 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class WebDriverFactory {
-    protected static WebDriver webDriver;
+    private static WebDriver webDriver;
     private static String browserName = System.getProperty("browser");//Get browser value from cmd
 
-    public WebDriverFactory() throws Throwable{
-        if (this.webDriver == null)
-            this.webDriver = setWebDriver();
+    public WebDriverFactory() {
+        if (webDriver == null)
+            setWebDriver();
     }
 
     public WebDriver getWebDriver() {
-        System.out.print("\nCurent webdriver ------->> ");
-        System.out.println(this.webDriver);
-        return this.webDriver;
+        System.out.print("\n*********** Current webdriver ------->> ");
+        System.out.println(webDriver);
+        return webDriver;
     }
 
-    private WebDriver setWebDriver() throws Throwable {
+    private void setWebDriver() {
         //Set download directory of webdriver to <drivers>
         WebDriverManager.config().setTargetPath("drivers");
 
         //Initiate a new webdriver instance base on browserName
         Class<? extends WebDriver> driverClass;
-        this.browserName = this.browserName.toLowerCase().trim();
-        switch (this.browserName) {
-            case "ie":
-                driverClass = InternetExplorerDriver.class;
-                WebDriverManager.getInstance(driverClass).setup();
-                this.webDriver = driverClass.newInstance();
-                return this.webDriver;
-            default:
-                driverClass = ChromeDriver.class;
-                WebDriverManager.getInstance(driverClass).setup();
-                this.webDriver = driverClass.newInstance();
-                return this.webDriver;
-
+        browserName = browserName.toLowerCase().trim();
+        try {
+            switch (browserName) {
+                case "ie":
+                    driverClass = InternetExplorerDriver.class;
+                    WebDriverManager.getInstance(driverClass).setup();
+                    break;
+                default:
+                    driverClass = ChromeDriver.class;
+                    WebDriverManager.getInstance(driverClass).setup();
+                    break;
+            }
+            webDriver = driverClass.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }

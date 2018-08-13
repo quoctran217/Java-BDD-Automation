@@ -6,10 +6,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/features",
-        glue = {"stepdefs"},
-        plugin = { "pretty", "html:target/html-reports"}
+        features = "src/test/resources/features/debug.feature",
+        glue = {"stepDefs", "hooks"},
+        plugin = { "pretty", "html:target/cucumber-html-reports"}
 )
 
-public class testrunner {
+public class TestRunner {
 }

@@ -7,7 +7,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class WebDriverFactory {
     private static WebDriver webDriver;
-    private static String browserName = System.getProperty("browser");//Get browser value from cmd
+//    private static String browserName = System.getProperty("browser");//Get browser value from cmd
+    private static String browserName = "chrome";
 
     public WebDriverFactory() {
         if (webDriver == null)

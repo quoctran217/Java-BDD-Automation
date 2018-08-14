@@ -4,20 +4,21 @@ import app.pages.DebugPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.support.PageFactory;
 
-public class debugDef extends DebugPage {
-    DebugPage debugPage = PageFactory.initElements(getWebDriver(),DebugPage.class);
+public abstract class debugDef {
+    DebugPage debugPage =  new DebugPage();
 
     @Given("^user is on homepage$")
-    public void user_is_on_homepage() { debugPage.navigateToHome(); }
+    public void user_is_on_homepage() {
+        debugPage.navigateToHomePage();
+    }
 
     @When("^user navigates to Login Page$")
     public void user_navigates_to_Login_Page() { debugPage.clickLogin(); }
 
     @When("^user enters username and Password$")
     public void user_enters_username_and_Password() {
-        debugPage.enterUserNandAndPassWord();
+        debugPage.enterUserNamedAndPassWord();
         debugPage.clickSubmit();
     }
 

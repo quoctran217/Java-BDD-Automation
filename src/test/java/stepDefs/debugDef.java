@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public abstract class debugDef {
+public class debugDef {
     DebugPage debugPage =  new DebugPage();
 
     @Given("^user is on homepage$")

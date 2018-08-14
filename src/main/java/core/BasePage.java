@@ -1,5 +1,5 @@
 package core;
 
-public class BasePage {
+public abstract class BasePage {
 
 }

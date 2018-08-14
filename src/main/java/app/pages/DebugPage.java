@@ -1,35 +1,33 @@
 package app.pages;
 
 import core.BasePage;
-import core.element.ElementWrapper;
-import core.pagefactory.qPageFactory;
 import core.webdriver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
 public class DebugPage extends BasePage {
     private WebDriver webDriver = new WebDriverFactory().getWebDriver();
 
-    public DebugPage() {
-        qPageFactory.initElements(this.webDriver, DebugPage.class);
-    }
+    public DebugPage(){ PageFactory.initElements(this.webDriver, this);}
 
     @FindBy(linkText = "Sign in")
-    private ElementWrapper btn_Login;
+    private WebElement btn_Login;
 
     @FindBy (name = "email")
-    private ElementWrapper input_Email;
+    private WebElement input_Email;
 
     @FindBy (id = "passwd")
-    private ElementWrapper input_Password;
+    private WebElement input_Password;
 
     @FindBy (id = "SubmitLogin")
-    private ElementWrapper btn_Submit;
+    private WebElement btn_Submit;
 
     @FindBy (css = ".info-account")
-    private ElementWrapper lbl_AccountInfo;
+    private WebElement lbl_AccountInfo;
 
     public void navigateToHomePage() {
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

@@ -7,16 +7,17 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class WebDriverFactory {
     private static WebDriver webDriver;
-//    private static String browserName = System.getProperty("browser");//Get browser value from cmd
-    private static String browserName = "chrome";
+    private static String browserName = System.getProperty("browser");//Get browser value from cmd
 
     public WebDriverFactory() {
         if (webDriver == null)
             setWebDriver();
+        else if (String.valueOf(webDriver).contains("null"))
+            setWebDriver();
     }
 
     public WebDriver getWebDriver() {
-        System.out.print("\n*********** Current webdriver ------->> ");
+        System.out.print("\n*********** Current webdriver ========================= ");
         System.out.println(webDriver);
         return webDriver;
     }

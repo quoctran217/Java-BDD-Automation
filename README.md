@@ -1,4 +1,4 @@
 # Java-BDD-Automation
 
 # Run test
-mvn -Dtest=testrunner test
+mvn -Dtest=TestRunner -Dbrowser=chrome test

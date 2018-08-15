@@ -17,7 +17,7 @@ public class WebDriverFactory {
     }
 
     public WebDriver getWebDriver() {
-        System.out.print("\n*********** Current webdriver ========================= ");
+        System.out.print("\n========================= Current webdriver: ");
         System.out.println(webDriver);
         return webDriver;
     }

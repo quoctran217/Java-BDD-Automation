@@ -30,7 +30,6 @@ public class DebugPage extends BasePage {
     private WebElement lbl_AccountInfo;
 
     public void navigateToHomePage() {
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.get("http://automationpractice.com/index.php");
     }
 

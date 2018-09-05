@@ -15,6 +15,7 @@ public class CustomHook {
         System.out.println("******** BEFORE SCENARIO");
         webDriver = new WebDriverFactory().getWebDriver();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.get("http://automationpractice.com/index.php");
     }
 
     @After

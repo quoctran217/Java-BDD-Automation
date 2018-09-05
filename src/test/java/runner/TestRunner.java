@@ -1,14 +1,10 @@
 package runner;
 
-import core.webdriver.WebDriverFactory;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
-import org.openqa.selenium.WebDriver;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by quoctran on 8/13/2018.
@@ -16,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = {"stepDefs", "hooks"},
+        glue = {"stepdefs", "hooks"},
         plugin = { "pretty", "html:target/cucumber-html-reports"}
 )
 

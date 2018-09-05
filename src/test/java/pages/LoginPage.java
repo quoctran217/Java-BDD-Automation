@@ -1,18 +1,15 @@
 package pages;
 
-import core.BasePage;
-import core.webdriver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
 public class LoginPage extends BasePage {
-    private WebDriver webDriver = new WebDriverFactory().getWebDriver();
 
-    public LoginPage(){ PageFactory.initElements(this.webDriver, this);}
+    public LoginPage(WebDriver webDriver){
+        PageFactory.initElements(webDriver, this);
+    }
 
     @FindBy(linkText = "Sign in")
     private WebElement btn_Login;
@@ -28,10 +25,6 @@ public class LoginPage extends BasePage {
 
     @FindBy (css = ".info-account")
     private WebElement lbl_AccountInfo;
-
-    public void navigateToHomePage() {
-        webDriver.get("http://automationpractice.com/index.php");
-    }
 
     public void clickLogin() { btn_Login.click(); }
 

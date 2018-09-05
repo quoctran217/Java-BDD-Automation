@@ -1,4 +1,4 @@
-package app.pages;
+package pages;
 
 import core.BasePage;
 import core.webdriver.WebDriverFactory;
@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class DebugPage extends BasePage {
+public class LoginPage extends BasePage {
     private WebDriver webDriver = new WebDriverFactory().getWebDriver();
 
-    public DebugPage(){ PageFactory.initElements(this.webDriver, this);}
+    public LoginPage(){ PageFactory.initElements(this.webDriver, this);}
 
     @FindBy(linkText = "Sign in")
     private WebElement btn_Login;

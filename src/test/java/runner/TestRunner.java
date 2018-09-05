@@ -15,23 +15,20 @@ import java.util.concurrent.TimeUnit;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features/debug",
+        features = "classpath:features",
         glue = {"stepDefs", "hooks"},
         plugin = { "pretty", "html:target/cucumber-html-reports"}
 )
 
 public class TestRunner {
-//    private static WebDriver webDriver = new WebDriverFactory().getWebDriver();
 
     @BeforeClass
     public static void beforeSuite() {
         System.out.println("**************** BEFORE SUITE");
-//        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterClass
     public static void afterSuite() {
         System.out.println("**************** AFTER SUITE");
-//        webDriver.quit();
     }
 }

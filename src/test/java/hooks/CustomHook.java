@@ -15,13 +15,11 @@ public class CustomHook {
         System.out.println("******** BEFORE SCENARIO");
         webDriver = new WebDriverFactory().getWebDriver();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //Go to Login page
     }
 
     @After
     public void afterScenario() {
         System.out.println("******** AFTER SCENARIO");
         webDriver.quit();
-        //Back to Login page
     }
 }
